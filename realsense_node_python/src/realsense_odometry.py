@@ -1,0 +1,59 @@
+#!/usr/bin/python3.6
+import pyrealsense2 as rs
+import rospy
+import cv2
+import numpy as np
+import open3d as o3d
+
+# for trajectory 
+from geometry_msgs.msg import Pose, PoseWithCovarianceStamped, Point, Quaternion, Twist, PoseStamped
+from nav_msgs.msg import Path, Odometry
+from trajectory_fun import get_path_position_orientation
+
+# T265 pipeline
+pipeline = rs.pipeline()
+config = rs.config()
+config.enable_stream(rs.stream.pose)
+
+# Start streaming
+pipeline.start(config)
+
+# Start streaming with requested config
+config.enable_record_to_file('test1.bag')
+
+# Node init and publisher definition
+rospy.init_node('realsense_trajectory', anonymous = True)
+pub_path = rospy.Publisher("path", Path, queue_size = 100)
+pub_odom = rospy.Publisher('odom_t265', Odometry, queue_size=1)
+rate = rospy.Rate(30) # 30hz
+
+# init trajectory variables
+my_path = Path()
+my_path.header.frame_id = 'map'
+
+
+print("Start node")
+
+
+while not rospy.is_shutdown():
+    
+    # Get data from camera
+    trajectory = pipeline.wait_for_frames()
+    timestamp = trajectory.get_timestamp()
+    #print("timestamp: ", type(timestamp))
+    pose = trajectory.get_pose_frame()
+
+    # create path, get position and orientation
+    my_path, position, orientation, odom = get_path_position_orientation(pose, my_path, timestamp, False)
+
+    # publish path
+    pub_path.publish(my_path)
+
+    # publish odom
+    pub_odom.publish(odom)
+
+    rate.sleep()
+
+# Stop streaming
+pipeline.stop()
+

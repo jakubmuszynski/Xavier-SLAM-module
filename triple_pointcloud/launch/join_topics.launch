@@ -1,0 +1,10 @@
+<launch>
+<!-- 
+	<node pkg="topic_tools" type="relay" name="relay1" args="PointCloud_L PointCloud_M" />
+	<node pkg="topic_tools" type="relay" name="relay2" args="PointCloud_R PointCloud_M" />
+-->
+	<node pkg="topic_tools" type="relay" name="relay1" args="PointCloud_L point_cloud2" />
+	<node pkg="topic_tools" type="relay" name="relay2" args="PointCloud_M point_cloud2" />
+	<node pkg="topic_tools" type="relay" name="relay3" args="PointCloud_R point_cloud2" />
+
+</launch>
