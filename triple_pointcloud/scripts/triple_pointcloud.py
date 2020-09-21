@@ -39,30 +39,29 @@ def create_PointCloud2_v2(new_points, cam_link):
 
     return pc2
 
-# Arguments parser
-parser = argparse.ArgumentParser()
-parser.add_argument("--voxel_size", "-v", help="set voxel_size for filtration", type=float, default=0.01)
-parser.add_argument("--cam_M_id", help="middle camera serial number", type=int, default=947522072464)
-parser.add_argument("--cam_R_id", help="right camera serial number", type=int, default=948122072058)
-parser.add_argument("--cam_L_id", help="left camera serial number", type=int, default=938422071315)
-args = parser.parse_args()
+# # Arguments parser
+# parser = argparse.ArgumentParser()
+# parser.add_argument("--cam_M_id", help="middle camera serial number", type=int, default=947522072464)
+# parser.add_argument("--cam_R_id", help="right camera serial number", type=int, default=948122072058)
+# parser.add_argument("--cam_L_id", help="left camera serial number", type=int, default=938422071315)
+# args = parser.parse_args()
 
 # D435 pipeline camera 1 - M
 pipeline_1 = rs.pipeline()
 config_1 = rs.config()
-config_1.enable_device(str(args.cam_M_id))
+config_1.enable_device(str(947522072464))
 config_1.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 15)
 config_1.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 15)
 # D435 pipeline camera 2 - R
 pipeline_2 = rs.pipeline()
 config_2 = rs.config()
-config_2.enable_device(str(args.cam_R_id))
+config_2.enable_device(str(948122072058))
 config_2.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 15)
 config_2.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 15)
 # D435 pipeline camera 3 - L
 pipeline_3 = rs.pipeline()
 config_3 = rs.config()
-config_3.enable_device(str(args.cam_L_id))
+config_3.enable_device(str(938422071315))
 config_3.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 15)
 config_3.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 15)
 
@@ -98,7 +97,7 @@ decimate_3.set_option(rs.option.filter_magnitude, 2 ** 1)
 colorizer_3 = rs.colorizer()
 
 # Node init and publishers definitions
-rospy.init_node('pointcloud_merge', anonymous = True)
+rospy.init_node('ptriple_pointcloud', anonymous = True)
 pub_1 = rospy.Publisher("PointCloud_M", PointCloud2, queue_size=2)
 pub_2 = rospy.Publisher("PointCloud_R", PointCloud2, queue_size=2)
 pub_3 = rospy.Publisher("PointCloud_L", PointCloud2, queue_size=2)
