@@ -4,7 +4,6 @@ import numpy as np
 import pyrealsense2 as rs
 import rospy
 import struct
-import open3d as o3d
 import ros_numpy
 
 from open3d.open3d.geometry import create_rgbd_image_from_color_and_depth, create_point_cloud_from_rgbd_image
