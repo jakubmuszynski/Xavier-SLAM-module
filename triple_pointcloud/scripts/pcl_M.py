@@ -66,7 +66,7 @@ decimate_1.set_option(rs.option.filter_magnitude, 2 ** 1)
 colorizer_1 = rs.colorizer()
 
 # Node init and publishers definitions
-rospy.init_node('pointcloud_merge', anonymous = True)
+rospy.init_node('pcl_M', anonymous = True)
 pub_1 = rospy.Publisher("PointCloud_M", PointCloud2, queue_size=2)
 rate = rospy.Rate(30) # 30hz
 
