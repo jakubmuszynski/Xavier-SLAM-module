@@ -39,16 +39,10 @@ def create_PointCloud2_v2(new_points, cam_link):
 
     return pc2
 
-# Arguments parser
-parser = argparse.ArgumentParser()
-parser.add_argument("--voxel_size", "-v", help="set voxel_size for filtration", type=float, default=0.01)
-parser.add_argument("--cam_R_id", help="right camera serial number", type=int, default=948122072058)
-args = parser.parse_args()
-
 # D435 pipeline camera 2 - R
 pipeline_2 = rs.pipeline()
 config_2 = rs.config()
-config_2.enable_device(str(args.cam_R_id))
+config_2.enable_device(str(948122072058))
 config_2.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 15)
 config_2.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 15)
 
