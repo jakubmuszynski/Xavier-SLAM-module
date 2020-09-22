@@ -6,8 +6,6 @@ import rospy
 import struct
 import ros_numpy
 
-from open3d.open3d.geometry import create_rgbd_image_from_color_and_depth, create_point_cloud_from_rgbd_image
-
 from sensor_msgs import point_cloud2
 from sensor_msgs.msg import PointCloud2, PointField, Image
 from std_msgs.msg import Header

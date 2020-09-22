@@ -3,7 +3,6 @@ import pyrealsense2 as rs
 import rospy
 import cv2
 import numpy as np
-import open3d as o3d
 import message_filters
 import math as m
 

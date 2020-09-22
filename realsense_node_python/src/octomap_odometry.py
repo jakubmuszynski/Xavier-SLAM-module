@@ -3,7 +3,6 @@ import pyrealsense2 as rs
 import rospy
 import cv2
 import numpy as np
-import open3d as o3d
 
 # for trajectory 
 from geometry_msgs.msg import Pose, Point, Quaternion, Twist, PoseStamped
