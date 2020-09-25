@@ -19,6 +19,7 @@ roscore
 ```
 or
 ```
+source devel/setup.bash
 roslaunch realsense_node_python octomap_viewer.launch
 ```
 
@@ -37,5 +38,13 @@ source ~/.bashrc
 
 5. Then, launch octomap
 ```
+source devel/setup.bash
 roslaunch realsense_node_python octomap_realsense.launch
 ```
+
+Octomap resolution and other parameters can be changed in octomap_realsense launch file.
+
+## Used repositories:
+- [realsense_nodes_python](https://github.com/Michal-Bidzinski/realsense_nodes_python)
+- [Multiple-Realsense-D435](https://github.com/jakubmuszynski/Multiple-Realsense-D435)
+- [octomap_mapping](https://github.com/OctoMap/octomap_mapping)
