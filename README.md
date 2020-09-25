@@ -1,6 +1,10 @@
 # Xavier-SLAM-module
 Warning: currently doesn't work on Xavier. Recommend platforms based on x86 architecture.
 
+<p align="center">
+  <img src="image.png" img align="center">
+</p>
+
 1. On your master computer, check master computer local IP address, and add it to your ~/.bashrc file
 ```
 gedit ~/.bashrc
