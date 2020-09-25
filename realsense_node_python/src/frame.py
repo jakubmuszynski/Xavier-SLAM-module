@@ -65,7 +65,7 @@ def callback(msg):
                          0.8660254),
                       rospy.Time.now(),
                       "cam_M_link",
-                      "cam_L_link")
+                      "cam_R_link")
 
     br_temp1 = tf.TransformBroadcaster()
     br_temp1.sendTransform((0,
@@ -76,7 +76,7 @@ def callback(msg):
                          -0.5,
                          0.8660254),
                       rospy.Time.now(),
-                      "cam_L_link",
+                      "cam_R_link",
                       "temp1")
 
     br_temp2 = tf.TransformBroadcaster()
@@ -101,7 +101,7 @@ def callback(msg):
                          0.8660254),
                       rospy.Time.now(),
                       "temp2",
-                      "cam_R_link")
+                      "cam_L_link")
 
 
 if __name__ == '__main__':
