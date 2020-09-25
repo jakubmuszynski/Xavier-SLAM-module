@@ -91,7 +91,7 @@ Visualization Manager:
         Shaft Length: 1
         Shaft Radius: 0.05000000074505806
         Value: Arrow
-      Topic: /odom_t265_sync
+      Topic: /odom_t265
       Unreliable: false
       Value: false
     - Class: rviz/TF

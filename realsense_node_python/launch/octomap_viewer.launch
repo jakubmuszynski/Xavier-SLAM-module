@@ -1,0 +1,6 @@
+<!--
+  Example launch file for octomap_server mapping:
+-->
+<launch>
+        <node type="rviz" name="rviz" pkg="rviz" args="-d $(find realsense_node_python)/rviz/config.rviz"/>
+</launch>

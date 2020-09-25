@@ -30,6 +30,4 @@
 		<param name="resolution" value="0.15" />
 
 	</node>
-
-        <node type="rviz" name="rviz" pkg="rviz" args="-d $(find realsense_node_python)/rviz/config.rviz"/>
 </launch>
