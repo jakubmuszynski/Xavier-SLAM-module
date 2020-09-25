@@ -27,7 +27,7 @@
 		<remap from="cloud_in" to="point_cloud2" />
 
         	<!-- resolution -->
-		<param name="resolution" value="0.08" />
+		<param name="resolution" value="0.15" />
 
 	</node>
 

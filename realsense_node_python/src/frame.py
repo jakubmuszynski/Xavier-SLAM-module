@@ -56,25 +56,25 @@ def callback(msg):
                       "camera")
 
     br_ML = tf.TransformBroadcaster()
-    br_ML.sendTransform((-0.02713135,
-                         0.06760438,
-                         -0.04535259),
-                        (-0.0007557,
-                         0.0075024,
-                         0.4279183,
-                         0.903786),
+    br_ML.sendTransform((-0.075813,
+                         -0.043789,
+                         -0.0709),
+                        (0,
+                         0,
+                         0.5,
+                         0.8660254),
                       rospy.Time.now(),
                       "cam_L_link",
                       "cam_M_link")
 
     br_MR = tf.TransformBroadcaster()
-    br_MR.sendTransform((-0.01463135,
-                         -0.05510438,
-                         0.00777241),
-                        (-0.0001983,
-                         0.0118488,
-                         -0.4229403,
-                         0.9060801),
+    br_MR.sendTransform((0.075813,
+                         -0.043789,
+                         -0.0709),
+                        (0,
+                         0,
+                         -0.5,
+                         0.8660254),
                       rospy.Time.now(),
                       "cam_R_link",
                       "cam_M_link")
