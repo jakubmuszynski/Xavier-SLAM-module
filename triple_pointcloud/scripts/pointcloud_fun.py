@@ -5,6 +5,7 @@ import pyrealsense2 as rs
 import rospy
 import struct
 import ros_numpy
+import open3d
 
 from sensor_msgs import point_cloud2
 from sensor_msgs.msg import PointCloud2, PointField, Image

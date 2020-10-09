@@ -135,17 +135,17 @@ while not rospy.is_shutdown():
     align_depth_3 = np.asanyarray(aligned_depth_frame_3.get_data())
 
     _, _, points_1 = get_point_cloud(depth_frame_1, color_frame_1, pc_1, decimate_1, colorizer_1)
-    #points_1 = point_cloud_filtration(points_1, args.voxel_size)
+    points_1 = point_cloud_filtration(points_1, args.voxel_size)
     pcv2_1 = create_PointCloud2_v2(points_1, 'cam_M_link')
     pub_1.publish(pcv2_1)
 
     _, _, points_2 = get_point_cloud(depth_frame_2, color_frame_2, pc_2, decimate_2, colorizer_2)
-    #points_2 = point_cloud_filtration(points_2, args.voxel_size)
+    points_2 = point_cloud_filtration(points_2, args.voxel_size)
     pcv2_2 = create_PointCloud2_v2(points_2, 'cam_R_link')
     pub_2.publish(pcv2_2)
 
     _, _, points_3 = get_point_cloud(depth_frame_3, color_frame_3, pc_3, decimate_3, colorizer_3)
-    #points_3 = point_cloud_filtration(points_3, args.voxel_size)
+    points_3 = point_cloud_filtration(points_3, args.voxel_size)
     pcv2_3 = create_PointCloud2_v2(points_3, 'cam_L_link')
     pub_3.publish(pcv2_3)
 
